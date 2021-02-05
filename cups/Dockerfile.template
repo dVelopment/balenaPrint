@@ -23,13 +23,16 @@ WORKDIR /usr/src/app/splix/splix
 
 RUN sudo make DISABLE_JBIG=1 && \
     sudo make install && \
-    cp ./ppd/m2020.ppd /usr/share/ppd/custom && \
-    cp ./ppd/brother_ql820nwb_printer_en.ppd /usr/share/ppd/custom
+    cp ./ppd/m2020.ppd /usr/share/ppd/custom    
 
 WORKDIR /
 
+# copy Brother QL-820NWB driver
+COPY ppd
+
 # Add script
-COPY run.sh /
+COPY run.sh /ppd/brother_ql820nwb_printer_en.ppd /
+RUN mv /brother_ql820nwb_printer_en.ppd /usr/share/ppd/custom
 
 # Enable USB devices
 ENV UDEV 1

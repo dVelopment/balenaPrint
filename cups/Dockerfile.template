@@ -29,7 +29,7 @@ WORKDIR /
 
 # copy Brother QL-820NWB driver
 COPY ql820nwbpdrv-2.1.4-0.armhf.deb /
-RUN ppkg -i /ql820nwbpdrv-2.1.4-0.armhf.deb
+RUN dpkg -i /ql820nwbpdrv-2.1.4-0.armhf.deb
 
 # add sample PDF
 COPY label.pdf /

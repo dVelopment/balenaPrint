@@ -28,8 +28,10 @@ RUN sudo make DISABLE_JBIG=1 && \
 WORKDIR /
 
 # copy Brother QL-820NWB driver
+COPY ppd/brother_ql820nwb_printer_en.ppd /
 COPY ql820nwbpdrv-2.1.4-0.armhf.deb /
-RUN dpkg -i /ql820nwbpdrv-2.1.4-0.armhf.deb
+RUN mv /brother_ql820nwb_printer_en.ppd /usr/share/ppd/custom && \
+    dpkg -i /ql820nwbpdrv-2.1.4-0.armhf.deb
 
 # Add script
 COPY run.sh /

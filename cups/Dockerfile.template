@@ -23,7 +23,8 @@ WORKDIR /usr/src/app/splix/splix
 
 RUN sudo make DISABLE_JBIG=1 && \
     sudo make install && \
-    cp ./ppd/m2020.ppd /usr/share/ppd/custom
+    cp ./ppd/m2020.ppd /usr/share/ppd/custom && \
+    cp ./ppd/brother_ql820nwb_printer_en.ppd /usr/share/ppd/custom
 
 WORKDIR /
 

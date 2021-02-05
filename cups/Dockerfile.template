@@ -28,11 +28,11 @@ RUN sudo make DISABLE_JBIG=1 && \
 WORKDIR /
 
 # copy Brother QL-820NWB driver
-COPY ppd
+COPY ppd/brother_ql820nwb_printer_en.ppd /
+RUN mv /brother_ql820nwb_printer_en.ppd /usr/share/ppd/custom
 
 # Add script
-COPY run.sh /ppd/brother_ql820nwb_printer_en.ppd /
-RUN mv /brother_ql820nwb_printer_en.ppd /usr/share/ppd/custom
+COPY run.sh /
 
 # Enable USB devices
 ENV UDEV 1

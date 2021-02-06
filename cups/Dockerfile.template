@@ -31,8 +31,9 @@ WORKDIR /
 COPY ql820nwbpdrv-2.1.4-0.armhf.deb /
 RUN dpkg -i /ql820nwbpdrv-2.1.4-0.armhf.deb
 
-# add sample PDF
+# add sample PDFs
 COPY label.pdf /
+COPY label2.pdf /
 
 # Add script
 COPY run.sh /
